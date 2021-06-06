@@ -25,6 +25,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.squareup.picasso.Picasso;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -81,14 +83,17 @@ public class f1 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         acadmyview = inflater.inflate(R.layout.fragment_f1, container, false);
+        // Get a non-default Storage bucket
 
 
         contentlist = (RecyclerView) acadmyview.findViewById(R.id.recycler);
         contentlist.setLayoutManager(new LinearLayoutManager(getContext()));
         databaseReference = FirebaseDatabase.getInstance().getReference().child("acadmy");
+        userref=FirebaseDatabase.getInstance().getReference().child("acadmy");
 
       //  databaseReference=FirebaseDatabase.getInstance().getReference().child("acadmy");
-        userref=FirebaseDatabase.getInstance().getReference().child("acadmy");
+
+        //userref=FirebaseDatabase.getInstance().getReference().child("image");
 
 
        // Button button = view.findViewById(R.id.button1);
@@ -138,12 +143,26 @@ public class f1 extends Fragment {
                  public void onDataChange(@NonNull DataSnapshot snapshot) {
                      if (snapshot.hasChild("acadamy name")) {
                          String name = snapshot.child("acadamy name").getValue().toString();
-                         String price = snapshot.child("price").getValue().toString();
+                         String price = snapshot.child("location").getValue().toString();
+                       String image = snapshot.child("image").getValue().toString();
 
 
 
                          viewholder.nametext.setText(name);
                          viewholder.pricetext.setText(price);
+
+
+                     Picasso.get().load(image).placeholder(R.drawable.add).into(viewholder.profileimage);
+
+                     }
+                     else {
+                         String name = snapshot.child("acadamy name").getValue().toString();
+                           String price = snapshot.child("location").getValue().toString();
+
+
+                        viewholder.nametext.setText(name);
+                         viewholder.pricetext.setText(price);
+
                      }
                  }
 
@@ -172,6 +191,7 @@ public class f1 extends Fragment {
     public static class Viewholder extends RecyclerView.ViewHolder {
 
         TextView nametext, pricetext;
+        ImageView profileimage;
 
 
 
@@ -179,6 +199,7 @@ public class f1 extends Fragment {
             super(itemView);
             nametext = itemView.findViewById(R.id.textView2);
             pricetext = itemView.findViewById(R.id.textView3);
+            profileimage=itemView.findViewById(R.id.imageView4);
 
         }
     }

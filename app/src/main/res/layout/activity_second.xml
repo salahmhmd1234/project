@@ -83,7 +83,7 @@
                 android:id="@+id/editTextTextPersonName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="17dp"
                 android:ems="10"
                 android:hint="Contant person name"
                 android:inputType="textPersonName"
@@ -102,29 +102,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
 
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="59dp"
-                android:layout_marginBottom="33dp"
-                android:onClick="capture"
-                android:text="image"
-                app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
-                app:layout_constraintStart_toStartOf="parent" />
-
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="85dp"
-                android:layout_height="76dp"
+                android:layout_width="130dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="23dp"
                 app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/button4"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
-                app:srcCompat="@mipmap/ic_launcher" />
+                app:srcCompat="@drawable/ic_baseline_add_photo_alternate_24" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName6"

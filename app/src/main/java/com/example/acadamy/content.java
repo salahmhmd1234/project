@@ -1,16 +1,15 @@
 package com.example.acadamy;
 
 public class content {
-    String name,price,image;
+    String name,price,imageUri;
 
     public content() {
     }
 
-    public content(String name, String price, String image) {
+    public content(String name, String price, String imageUri) {
         this.name = name;
         this.price = price;
-        this.image = image;
-
+        this.imageUri = imageUri;
     }
 
     public String getName() {
@@ -29,11 +28,12 @@ public class content {
         this.price = price;
     }
 
-    public String getImage() {
-        return image;
+    public String getImageUri() {
+        return imageUri;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
     }
 }
+

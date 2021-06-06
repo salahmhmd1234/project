@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class profile extends AppCompatActivity {
 
@@ -59,10 +60,10 @@ public class profile extends AppCompatActivity {
                     String email=snapshot.child("email").getValue().toString();
                     String price=snapshot.child("price").getValue().toString();
                     String phone=snapshot.child("phone").getValue().toString();
+                    String imagee = snapshot.child("image").getValue().toString();
 
 
-
-
+                    Picasso.get().load(imagee).placeholder(R.drawable.add).into(image);
                        profileacadamyname.setText(acadmyname);
                        profileemail.setText(email);
                        profilelocation.setText(location);
